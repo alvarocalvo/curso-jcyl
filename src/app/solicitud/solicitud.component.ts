@@ -15,6 +15,17 @@ export class SolicitudComponent implements OnInit {
     }, 2000);
   }
 
+  accion(accion:string) {
+    switch(accion) {
+      case 'eliminar':
+        console.log('Eliminar');
+        break;
+      default:
+        console.log('por defecto');
+        break;
+    }
+  }
+
   ngOnInit(): void {
   }
 
