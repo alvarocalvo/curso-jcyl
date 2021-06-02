@@ -1,3 +1,13 @@
 <p>solicitud works!</p>
-<p [style.color]="+solicitud.nombre > 0.5 ? 'red':'blue'">{{solicitud.nombre}}</p>
+<p [style.color]="+solicitud.valor > 0.5 ? 'red':'blue'">{{solicitud.valor}}</p>
+<p><u>CADENA NOMBRE Y APELLIDOS CONCATENADA:</u> {{solicitud.nombre}} {{solicitud.apellidos}}</p>
+
+<label>Nombre</label>
+{{solicitud.nombre}}
+<br/>
+
+<label>Apellidos</label>
+<input (keyup)="apellidos($event)" />
+<br/><br/>
+
 <button (click)="this.accion('eliminar')">Eliminar</button>

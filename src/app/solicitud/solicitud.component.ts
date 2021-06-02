@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
 
-  solicitud = {nombre: "Alvaro"}
+  solicitud = {nombre: "Alvaro", apellidos: "", valor:""}
 
   constructor() {
     setInterval(() => {
-      this.solicitud.nombre = ''+Math.random()
+      this.solicitud.valor = ''+Math.random()
     }, 2000);
   }
 
@@ -24,6 +24,11 @@ export class SolicitudComponent implements OnInit {
         console.log('por defecto');
         break;
     }
+  }
+
+  apellidos($event:KeyboardEvent) {
+    const element = $event.target as HTMLInputElement;
+    this.solicitud.apellidos=element.value;
   }
 
   ngOnInit(): void {
