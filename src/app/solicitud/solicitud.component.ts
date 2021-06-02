@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
 
-  solicitud = {nombre: "Alvaro", apellidos: "", valor:""}
+  solicitud = {nombre: "", apellidos: "", valor:""}
 
   constructor() {
     setInterval(() => {
@@ -29,6 +29,11 @@ export class SolicitudComponent implements OnInit {
   apellidos($event:KeyboardEvent) {
     const element = $event.target as HTMLInputElement;
     this.solicitud.apellidos=element.value;
+  }
+
+  nombre($event:KeyboardEvent) {
+    const element = $event.target as HTMLInputElement;
+    this.solicitud.nombre=element.value;
   }
 
   ngOnInit(): void {

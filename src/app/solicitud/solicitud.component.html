@@ -3,7 +3,7 @@
 <p><u>CADENA NOMBRE Y APELLIDOS CONCATENADA:</u> {{solicitud.nombre}} {{solicitud.apellidos}}</p>
 
 <label>Nombre</label>
-{{solicitud.nombre}}
+<input (keyup)="nombre($event)" />
 <br/>
 
 <label>Apellidos</label>
