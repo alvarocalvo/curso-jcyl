@@ -8,6 +8,8 @@
 
 <label>Apellidos</label>
 <input (keyup)="apellidos($event)" />
+<p *ngIf="solicitud.apellidos.length<=0">Los apellidos no pueden estar vacíos</p>
+<p *ngIf="solicitud.nombre.length<=0">El nombre no pueden estar vacío</p>
 <br/><br/>
 
 <button (click)="this.accion('eliminar')">Eliminar</button>
