@@ -1,15 +1,31 @@
 <p>solicitud works!</p>
-<p [style.color]="+solicitud.valor > 0.5 ? 'red':'blue'">{{solicitud.valor}}</p>
-<p><u>CADENA NOMBRE Y APELLIDOS CONCATENADA:</u> {{solicitud.nombre}} {{solicitud.apellidos}}</p>
+<p [style.color]="+sol.valor > 0.5 ? 'red':'blue'">{{sol.valor}}</p>
+<p><u>CADENA NOMBRE Y APELLIDOS CONCATENADA:</u> {{sol.nombre}} {{sol.apellidos}}</p>
 
+<h2>Añadir</h2>
 <label>Nombre</label>
-<input (keyup)="nombre($event)" />
+<input (keyup)="nombre($event)" #nombreInput/>
 <br/>
 
 <label>Apellidos</label>
-<input (keyup)="apellidos($event)" />
-<p *ngIf="solicitud.apellidos.length<=0">Los apellidos no pueden estar vacíos</p>
-<p *ngIf="solicitud.nombre.length<=0">El nombre no pueden estar vacío</p>
+<input (keyup)="apellidos($event)" #apellidosInput />
+<p *ngIf="sol.apellidos.length<=0">Los apellidos no pueden estar vacíos</p>
+<p *ngIf="sol.nombre.length<=0">El nombre no pueden estar vacío</p>
 <br/><br/>
+<button (click)="this.annadir(nombreInput.value,apellidosInput.value)">Enviar</button>
 
-<button (click)="this.accion('eliminar')">Eliminar</button>
+<br/><br/><br/>
+<h2>Listado</h2>
+<table border="1">
+  <tr>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let solicitud of solicitudes">
+    <td>{{solicitud.nombre}}</td>
+    <td>{{solicitud.apellidos}}</td>
+    <td><button (click)="this.eliminar(solicitud)">Eliminar</button></td>
+  </tr>
+
+</table>

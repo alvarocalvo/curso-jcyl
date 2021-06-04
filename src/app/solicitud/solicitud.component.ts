@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Solicitud} from "./solicitud";
 
 @Component({
   selector: 'app-solicitud',
@@ -7,33 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudComponent implements OnInit {
 
-  solicitud = {nombre: "", apellidos: "", valor:""}
+  sol:Solicitud = {nombre: "", apellidos: "", valor:""}
+  solicitudes:Array<Solicitud>  = [{nombre:"nombreEstatico", apellidos: "apellidosEstaticos", valor:"1"},{nombre:"nombreEstatico", apellidos: "apellidosEstaticos", valor:"2"}]
 
   constructor() {
     setInterval(() => {
-      this.solicitud.valor = ''+Math.random()
+      this.sol.valor = ''+Math.random()
     }, 2000);
   }
 
-  accion(accion:string) {
-    switch(accion) {
-      case 'eliminar':
-        console.log('Eliminar');
-        break;
-      default:
-        console.log('por defecto');
-        break;
-    }
+  annadir(nombreInput:string, apellidosInput: string) {
+        var solicitudTest:Solicitud = {nombre:nombreInput, apellidos: apellidosInput, valor:""}
+        this.solicitudes.push(solicitudTest);
+  }
+
+  eliminar(solicitud:Solicitud) {
+    this.solicitudes=this.solicitudes.filter(x=>x.valor != solicitud.valor)
   }
 
   apellidos($event:KeyboardEvent) {
     const element = $event.target as HTMLInputElement;
-    this.solicitud.apellidos=element.value;
+    this.sol.apellidos=element.value;
   }
 
   nombre($event:KeyboardEvent) {
     const element = $event.target as HTMLInputElement;
-    this.solicitud.nombre=element.value;
+    this.sol.nombre=element.value;
   }
 
   ngOnInit(): void {
