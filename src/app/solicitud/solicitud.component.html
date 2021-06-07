@@ -12,6 +12,8 @@
 <p *ngIf="sol.apellidos.length<=0">Los apellidos no pueden estar vacíos</p>
 <p *ngIf="sol.nombre.length<=0">El nombre no pueden estar vacío</p>
 <br/><br/>
+<app-selector-centro></app-selector-centro>
+<br/><br/>
 <button (click)="this.annadir(nombreInput.value,apellidosInput.value)">Enviar</button>
 
 <br/><br/><br/>
