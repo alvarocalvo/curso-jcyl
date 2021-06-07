@@ -18,7 +18,7 @@ export class SolicitudComponent implements OnInit {
   }
 
   annadir(nombreInput:string, apellidosInput: string) {
-        var solicitudTest:Solicitud = {nombre:nombreInput, apellidos: apellidosInput, valor:""}
+        let solicitudTest:Solicitud = {nombre:nombreInput, apellidos: apellidosInput, valor:""}
         this.solicitudes.push(solicitudTest);
   }
 
