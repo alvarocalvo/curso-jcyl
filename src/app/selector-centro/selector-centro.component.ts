@@ -6,7 +6,7 @@ import {Centro} from "../centros/centros.component";
   template:`
   <input (keyup)="buscarCentro($event)" [value]="centroSeleccionado?.nombre"/>
   <table>
-    <tr *ngFor="let centro of centrosFiltrados"><td><p (click)="seleccionarCentro(centro)">{{centro?.nombre}}</p></td></tr>
+    <tr *ngFor="let centro of centrosFiltrados"><td><p (click)="seleccionarCentro(centro)">{{centro.nombre | uppercase}}</p></td></tr>
   </table>
   `,
   styleUrls: ['./selector-centro.component.css']

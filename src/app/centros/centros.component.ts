@@ -27,5 +27,5 @@ export class CentrosComponent implements OnInit {
 
 
 export class Centro {
-  nombre?:String;
+  nombre?:string;
 }
