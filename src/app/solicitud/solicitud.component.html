@@ -25,9 +25,7 @@
     <th>Acciones</th>
   </tr>
   <tr *ngFor="let solicitud of solicitudes">
-    <td>{{solicitud.nombre}}</td>
-    <td>{{solicitud.apellidos}}</td>
-    <td><button (click)="this.eliminar(solicitud)">Eliminar</button></td>
+    <app-fila-solicitud [solicitud]="solicitud" (solicitudEliminada)="eliminar($event)"></app-fila-solicitud>
   </tr>
 
 </table>
